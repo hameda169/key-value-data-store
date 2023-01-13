@@ -1,0 +1,15 @@
+.list-component-container {
+  border: solid 1px #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.list-add-form-button {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  background-color: #ddd;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}

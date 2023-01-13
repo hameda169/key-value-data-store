@@ -1,0 +1,13 @@
+.key-value-component-container {
+  border: solid 1px #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.key-value-input {
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-bottom: solid 1px #ddd;
+  width: calc(50% - 10px);
+}
