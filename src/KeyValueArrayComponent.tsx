@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from "react";
 import KeyValueComponent from "./KeyValueComponent";
 import { KeyValuePair } from "./keyValuePair";
+import "./KeyValueArrayComponent.css";
 interface Props {
   value: KeyValuePair[];
   onChange: (keyValuePairs: KeyValuePair[]) => void;

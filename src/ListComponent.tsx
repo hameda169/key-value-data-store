@@ -1,6 +1,7 @@
-import { useState, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import KeyValueArrayComponent from "./KeyValueArrayComponent";
 import { KeyValuePair } from "./keyValuePair";
+import "./ListComponent.css";
 
 const ListComponent = () => {
   const [forms, setForms] = useState<KeyValuePair[][]>([
@@ -10,22 +11,26 @@ const ListComponent = () => {
     setForms([...forms, [{ key: "", value: "" }]]);
   };
   const submitForm = useCallback(
-    (formIndex: number, data: KeyValuePair[]) => {
+    (formIndex: number, keyValueIndex: number, data: KeyValuePair) => {
       const newForms = [...forms];
-      newForms[formIndex] = data;
+      newForms[formIndex][keyValueIndex] = data;
       setForms(newForms);
     },
     [forms]
   );
 
   return (
-    <div>
-      <button onClick={handleAddForm}>Add Form</button>
+    <div className="list-component-container">
+      <button className="list-add-form-button" onClick={handleAddForm}>
+        Add Form
+      </button>
       {forms.map((form, formIndex) => (
         <KeyValueArrayComponent
           key={formIndex}
           value={form}
-          onChange={(data: KeyValuePair[]) => submitForm(formIndex, data)}
+          onChange={(keyValueIndex: number, data: KeyValuePair) =>
+            submitForm(formIndex, keyValueIndex, data)
+          }
         />
       ))}
     </div>
