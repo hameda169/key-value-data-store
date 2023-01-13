@@ -1,13 +1,15 @@
-.key-value-component-container {
-  border: solid 1px #ddd;
-  padding: 10px;
-  margin-bottom: 10px;
+.key-value-pair-container {
+  display: flex;
+  align-items: center;
 }
-
-.key-value-input {
+.key-value-pair-delete-button {
   padding: 10px;
-  margin-right: 10px;
+  margin-left: 10px;
   border: none;
-  border-bottom: solid 1px #ddd;
-  width: calc(50% - 10px);
+  background-color: #ddd;
+  cursor: pointer;
+}
+.key-value-input {
+  margin-right: 10px;
+  padding: 10px;
 }

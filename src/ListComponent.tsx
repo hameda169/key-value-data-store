@@ -11,9 +11,9 @@ const ListComponent = () => {
     setForms([...forms, [{ key: "", value: "" }]]);
   };
   const submitForm = useCallback(
-    (formIndex: number, keyValueIndex: number, data: KeyValuePair) => {
+    (formIndex: number, data: KeyValuePair[]) => {
       const newForms = [...forms];
-      newForms[formIndex][keyValueIndex] = data;
+      newForms[formIndex] = data;
       setForms(newForms);
     },
     [forms]
@@ -28,9 +28,7 @@ const ListComponent = () => {
         <KeyValueArrayComponent
           key={formIndex}
           value={form}
-          onChange={(keyValueIndex: number, data: KeyValuePair) =>
-            submitForm(formIndex, keyValueIndex, data)
-          }
+          onChange={(data: KeyValuePair[]) => submitForm(formIndex, data)}
         />
       ))}
     </div>

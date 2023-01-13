@@ -21,6 +21,15 @@ const KeyValueArrayComponent: React.FC<Props> = ({ value, onChange }) => {
     [onChange, value]
   );
 
+  const handleDeletePair = useCallback(
+    (index: number) => {
+      const newPairs = [...value];
+      newPairs.splice(index, 1);
+      onChange(newPairs);
+    },
+    [onChange, value]
+  );
+
   return (
     <div className="key-value-array-component-container">
       <button className="key-value-array-add-button" onClick={handleAddPair}>
@@ -30,13 +39,12 @@ const KeyValueArrayComponent: React.FC<Props> = ({ value, onChange }) => {
         () =>
           value.map((pair, index) => (
             <KeyValueComponent
-              key={index}
               value={pair}
-              onChange={handleChange}
-              index={index}
+              onChange={(name, val) => handleChange(index, name, val)}
+              onDelete={() => handleDeletePair(index)}
             />
           )),
-        [value, handleChange]
+        [value, handleChange, handleDeletePair]
       )}
     </div>
   );
